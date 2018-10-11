@@ -1,5 +1,4 @@
 function getUserAPIUrl(){
-    debugger;
     if(location.hostname == 'github.com'){
         return 'https://api.github.com/users/';
     }else{
@@ -8,7 +7,6 @@ function getUserAPIUrl(){
 }
 
 function replaceId(idLinkEntry){
-    debugger;
     var xhr = new XMLHttpRequest();
     // after request ready, replace id
     xhr.onreadystatechange = function(){
@@ -27,7 +25,6 @@ var creatorLinks = document.querySelectorAll('.opened-by a');
 // get id set that need to be translated
 var idSet = new Set()
 var idLinkMap = new Map();
-debugger;
 // group id-link map
 for(let sub of creatorLinks){
     var userId = sub.text;
