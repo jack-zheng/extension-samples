@@ -1,5 +1,14 @@
-const userUrl = "https://github.wdf.sap.corp/api/v3/users/";
+function getUserAPIUrl(){
+    debugger;
+    if(location.hostname == 'github.com'){
+        return 'https://api.github.com/users/';
+    }else{
+        return location.protocol + '//' + location.hostname + '/api/v3/users/'
+    }
+}
+
 function replaceId(idLinkEntry){
+    debugger;
     var xhr = new XMLHttpRequest();
     // after request ready, replace id
     xhr.onreadystatechange = function(){
@@ -10,7 +19,7 @@ function replaceId(idLinkEntry){
             }
         }
     };
-    xhr.open('GET', userUrl + idLinkEntry[0], true);
+    xhr.open('GET', getUserAPIUrl() + idLinkEntry[0], true);
     xhr.send();
 }
 
@@ -18,7 +27,7 @@ var creatorLinks = document.querySelectorAll('.opened-by a');
 // get id set that need to be translated
 var idSet = new Set()
 var idLinkMap = new Map();
-
+debugger;
 // group id-link map
 for(let sub of creatorLinks){
     var userId = sub.text;

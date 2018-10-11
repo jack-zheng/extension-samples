@@ -11,10 +11,9 @@
   },
   "content_scripts": [
    {
-     "matches": ["https://github.wdf.sap.corp/*/pulls"],
+     "matches": ["https://*/*/pulls"],
      "js": ["contentScript.js"]
    }
  ],
-  "web_accessible_resources": ["data.json"],
   "manifest_version": 2
 }
